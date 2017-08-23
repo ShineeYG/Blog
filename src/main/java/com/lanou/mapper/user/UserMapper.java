@@ -20,5 +20,5 @@ public interface UserMapper {
     User loginBlog(@Param("name") String name,
                    @Param("password") String password);
 
-    void regiest(User user);
+   void regiest(User user);
 }

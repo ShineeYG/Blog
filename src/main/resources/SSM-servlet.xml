@@ -26,6 +26,14 @@
         <property name="suffix" value=".jsp"/>
         <!--/WEB-INF/index.jsp-->
     </bean>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/loginBlog"/>
+            <mvc:exclude-mapping path="/"/>
+            <bean class="com.lanou.interceptor.Interceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
 </beans>

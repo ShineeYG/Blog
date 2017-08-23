@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>骚年  注册吧</h1>
+<h1>  注册界面  </h1>
 </body>
 </html>

@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>跳转成功</h1>
+<h1>跳转成功  应该显示 信息</h1>
 </body>
 </html>

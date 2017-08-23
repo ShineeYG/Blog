@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -20,6 +22,13 @@ public class MainController {
 
     @Resource
     private UserService userService;
+
+
+    //跳转界面
+    @RequestMapping("/")
+    public String jump(){
+        return "index";
+    }
 
 
     //查找出所有的评论
@@ -34,10 +43,12 @@ public class MainController {
 
     //登录界面
     @RequestMapping("/loginBlog")
-    public String loginBlog(@RequestParam("name") String name,
+    public String loginBlog(HttpServletRequest httpServletRequest,@RequestParam("name") String name,
                             @RequestParam("password") String password) {
         boolean b = userService.loginBlog(name, password);
         if (b) {
+            HttpSession session = httpServletRequest.getSession();
+            session.setAttribute("name", name);
             return "success";
         } else {
             return "regiest";
@@ -48,15 +59,23 @@ public class MainController {
     //注册
     @RequestMapping("/regiest")
     public String regiest(@RequestParam("name") String name, @RequestParam("password") String password,
-                          @RequestParam("tel") String tel, @RequestParam("address") String address) {
-        User user1 = new User();
-        user1.setName(name);
-        user1.setPassword(password);
-        user1.setTel(tel);
-        user1.setAddress(address);
-        userService.regiest(user1);
-        return "index";
+                          @RequestParam("secPassword") String secPassword, @RequestParam("tel") String tel,
+                          @RequestParam("address") String address) {
+        if (password.equals(secPassword)) {
+            User user1 = new User();
+            user1.setName(name);
+            user1.setPassword(password);
+            user1.setTel(tel);
+            user1.setAddress(address);
+            userService.regiest(user1);
+            return "index";
+        } else {
+            return "regiest";
+        }
     }
+
+
+
 
 
 }

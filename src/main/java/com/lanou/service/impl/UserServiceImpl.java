@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     public boolean loginBlog(@Param("name") String name,
                              @Param("password") String password) {
         User user1 = userMapper.loginBlog(name, password);
-        if (user1 != null) {
+        if (user1 == null) {
             return false;
         } else {
             return true;
