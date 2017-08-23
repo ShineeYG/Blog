@@ -25,8 +25,8 @@
     </select>
 
 
-    <insert id="regiest" useGeneratedKeys="true" keyProperty="id" parameterType="User" >
-        INSERT INTO b_user VALUES (null,#{name} ,#{password},0,null,{tel},#{address});
+    <insert id="regiest" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+        INSERT INTO b_user VALUES (null ,#{name} , #{password}, 0 , #{level} , #{tel}, #{address});
     </insert>
 
 

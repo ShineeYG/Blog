@@ -1,6 +1,7 @@
 package com.lanou.service;
 
 import com.lanou.bean.Blog;
+import com.lanou.bean.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,5 +18,5 @@ public interface UserService {
     boolean loginBlog(@RequestParam("name") String name,
                       @RequestParam("password") String password);
 
-    void regiest(String name, String password, String tel, String address);
+    void regiest(User user);
 }

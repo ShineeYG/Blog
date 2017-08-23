@@ -28,8 +28,6 @@ public class UserServiceImpl implements UserService {
 
     public boolean loginBlog(@Param("name") String name,
                              @Param("password") String password) {
-
-        System.out.println(name + "走到这了  走丢了" + password);
         User user1 = userMapper.loginBlog(name, password);
         if (user1 != null) {
             return false;
@@ -38,14 +36,9 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public void regiest(String name, String password, String tel, String address) {
-        System.out.println("name:" + name + "password:" + password + "tel:" + tel + "address:" + address);
-        name = "2";
-        password = "2";
-        tel = "2";
-        address = "2";
-        System.out.println("name:" + name + "password:" + password + "tel:" + tel + "address:" + address);
-        userMapper.regiest(name, password, tel, address);
+    public void regiest(User user) {
+        System.out.println(user);
+        userMapper.regiest(user);
     }
 
 
