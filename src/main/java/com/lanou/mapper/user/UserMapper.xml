@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lanou.mapper.user.UserMapper">
+    <resultMap id="UserMap" type="com.lanou.bean.User">
+        <id column="id" property="id" javaType="integer" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR" javaType="String"/>
+        <result column="password" property="password" jdbcType="VARCHAR" javaType="String"/>
+        <result javaType="integer" jdbcType="INTEGER" property="level" column="level"/>
+        <result column="des" property="des" jdbcType="VARCHAR" javaType="String"/>
+        <result column="tel" property="tel" jdbcType="VARCHAR" javaType="String"/>
+        <result column="address" property="address" jdbcType="VARCHAR" javaType="String"/>
+    </resultMap>
+
+    <!--查找所有message-->
+    <select id="findAllMessage" resultType="com.lanou.bean.Blog">
+        SELECT * FROM b_blog
+    </select>
+
+    <select id="loginBlog" parameterType="String" resultType="com.lanou.bean.User">
+        SELECT * FROM  b_user WHERE name= #{name} and password = #{password};
+    </select>
+
+
+    <insert id="regiest" useGeneratedKeys="true" keyProperty="id" parameterType="User" >
+        INSERT INTO b_user VALUES (null,#{name} ,#{password},0,null,{tel},#{address});
+    </insert>
+
+
+</mapper>
