@@ -102,7 +102,6 @@
     getAllBlog()
 
     var delfunc = function () {
-
         var aid = $(this).attr("num")
         $.ajax({
             url: "/delete",
