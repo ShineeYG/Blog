@@ -14,6 +14,9 @@
         <result column="tel" property="tel" jdbcType="VARCHAR" javaType="String"/>
         <result column="address" property="address" jdbcType="VARCHAR" javaType="String"/>
     </resultMap>
+    <insert id="regiest">
+        INSERT INTO b_user VALUES (null ,#{name} , #{password}, 0 , #{level} , #{tel}, #{address});
+    </insert>
 
     <!--查找所有message-->
     <select id="findAllMessage" resultType="com.lanou.bean.Blog">
@@ -25,9 +28,6 @@
     </select>
 
 
-    <insert id="regiest" useGeneratedKeys="true" keyProperty="id" parameterType="User">
-        INSERT INTO b_user VALUES (null ,#{name} , #{password}, 0 , #{level} , #{tel}, #{address});
-    </insert>
 
 
 </mapper>

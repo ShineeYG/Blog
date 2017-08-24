@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 <body>
 
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -31,7 +31,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/newblog.action">新建博客</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/newblog">新建博客</a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -40,7 +40,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}/newblog.action">切换用户</a></li>
+                <div>${sessionScope.get(name)}</div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="${pageContext.request.contextPath}/login">切换用户</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
 

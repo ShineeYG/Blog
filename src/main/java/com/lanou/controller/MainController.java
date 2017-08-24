@@ -26,8 +26,20 @@ public class MainController {
 
     //跳转界面
     @RequestMapping("/")
-    public String jump(){
+    public String jump() {
         return "index";
+    }
+
+    //跳转到登录界面
+    @RequestMapping("login")
+    public String login() {
+        return "login";
+    }
+
+    //跳转到注册界面
+    @RequestMapping("regiestP")
+    public String registe() {
+        return "regiest";
     }
 
 
@@ -43,14 +55,14 @@ public class MainController {
 
     //登录界面
     @RequestMapping("/loginBlog")
-    public String loginBlog(HttpServletRequest httpServletRequest,@RequestParam("name") String name,
+    public String loginBlog(HttpServletRequest httpServletRequest, @RequestParam("name") String name,
                             @RequestParam("password") String password) {
-        System.out.println(name+ "      +     "+password);
+        System.out.println(name + "      +     " + password);
         boolean b = userService.loginBlog(name, password);
         if (b) {
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("name", name);
-            return "success";
+            return "index";
         } else {
             return "regiest";
         }
@@ -59,9 +71,10 @@ public class MainController {
 
     //注册
     @RequestMapping("/regiest")
-    public String regiest(@RequestParam("name") String name, @RequestParam("password") String password,
+    public String regiest(HttpServletRequest httpServletRequest, @RequestParam("name") String name, @RequestParam("password") String password,
                           @RequestParam("secPassword") String secPassword, @RequestParam("tel") String tel,
                           @RequestParam("address") String address) {
+        System.out.println("name: " + name + "password :" + password + "secPassword :" + secPassword + " tel :" + tel + " address :" + address);
         if (password.equals(secPassword)) {
             User user1 = new User();
             user1.setName(name);
@@ -69,6 +82,7 @@ public class MainController {
             user1.setTel(tel);
             user1.setAddress(address);
             userService.regiest(user1);
+            httpServletRequest.getSession().setAttribute("name", name);
             return "index";
         } else {
             return "regiest";
@@ -76,14 +90,15 @@ public class MainController {
     }
 
 
+    @RequestMapping(value = "/newblog")
+    public String aaa() {
 
+        System.out.println("xadasdasdjvjksdni你倒是跳啊");
+        return "success";
+    }
 
 
     //高级查询
-
-
-
-
 
 
 }

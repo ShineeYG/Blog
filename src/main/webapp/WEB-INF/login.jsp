@@ -39,7 +39,7 @@
                 </label>
             </div>
             <button type="submit" class="btn btn-default">登录</button>
-            <a class="btn btn-default" href="#" role="button">注册</a>
+            <a class="btn btn-default" href="${pageContext.request.contextPath}/regiestP" role="button"  >注册</a>
         </form>
     </div>
 </div>
