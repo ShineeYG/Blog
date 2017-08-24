@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -9,9 +9,11 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="js/jquery-3.0.0.js" type="text/javascript"></script>
+    <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
 </head>
 <body>
+
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,7 +31,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/newblog">新建博客</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/newblog.action">新建博客</a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -38,7 +40,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">切换用户</a></li>
+                <li><a href="${pageContext.request.contextPath}/newblog.action">切换用户</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
 

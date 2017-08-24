@@ -45,6 +45,7 @@ public class MainController {
     @RequestMapping("/loginBlog")
     public String loginBlog(HttpServletRequest httpServletRequest,@RequestParam("name") String name,
                             @RequestParam("password") String password) {
+        System.out.println(name+ "      +     "+password);
         boolean b = userService.loginBlog(name, password);
         if (b) {
             HttpSession session = httpServletRequest.getSession();
@@ -73,6 +74,8 @@ public class MainController {
             return "regiest";
         }
     }
+
+
 
 
 
